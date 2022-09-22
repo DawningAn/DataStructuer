@@ -8,7 +8,8 @@ typedef int SLDataType;
 //定义顺序表(重新命名为SL代表顺序表)
 typedef struct SeqList {
 	SLDataType a[N];
-	int size;
+	int size;  //数组中存放了多少个数据
+	int	capacity;  //数组实际能存放的空间容量
 }SL;
 //接口函数
 void SeqListinit(SL* ps);
