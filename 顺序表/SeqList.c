@@ -14,8 +14,13 @@ void SeqListPrint(SL* ps) {
 	}
 
 }
+//销毁顺序表
+void SeqListDestory(SL* ps) {
+	free(ps->a);
+	ps->a == NULL;
+	ps->capacity = ps->size = 0;
+}
 //实现尾插
-//并且要考虑扩容
 void SeqListPushBack(SL* ps, SLDataType x) {
 	if (ps->size == ps->capacity) {
 		//如果没有空间，那么要初始化
@@ -38,6 +43,13 @@ void SeqListPushBack(SL* ps, SLDataType x) {
 }
 
 void SeqListPushFront(SL* ps, SLDataType x);
+//实现尾删
+void SeqListPopBack(SL* ps) {
+	if (ps->size == 0) {
+		printf("顺序表无元素！\n");
+		return;
+	}
 
-void SeqListPopBack(SL* ps);
+	ps->size--;
+}
 void SeqListPopFront(SL* ps);

@@ -33,6 +33,9 @@ void TestSeqList1() {
 
 	SeqListPrint(&sl);
 
+	//最后不用了就销毁
+	SeqListDestory(&sl);
+
 }
 
 void TestSeqList2() {

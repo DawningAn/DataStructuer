@@ -25,5 +25,7 @@ void SeqListPushFront(SL* ps, SLDataType x);
 void SeqListPushBack(SL* ps, SLDataType x);
 void SeqListPopBack(SL* ps);
 void SeqListPopFront(SL* ps);
-
+//打印顺序表
 void SeqListPrint(SL* ps);
+//销毁顺序表
+void SeqListDestory(SL* ps);
