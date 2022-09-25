@@ -18,3 +18,27 @@
 //    }
 //    printf("%d\n", x);  //打印出消失的数字
 //}
+
+//实现顺序表
+void TestSeqList1() {
+	SL sl;
+	SeqListInit(&sl);  //地址传参很重要，形参是实参的临时拷贝，对形参的修改不会改变实参
+
+	//实现插入数据
+	SeqListPushBack(&sl, 1);
+	SeqListPushBack(&sl, 2);
+	SeqListPushBack(&sl, 3);
+	SeqListPushBack(&sl, 4);
+	SeqListPushBack(&sl, 5);
+
+	SeqListPrint(&sl);
+
+}
+
+void TestSeqList2() {
+
+}
+int main() {
+	TestSeqList1();
+	return 0;
+}
