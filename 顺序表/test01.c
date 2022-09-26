@@ -39,9 +39,33 @@ void TestSeqList1() {
 }
 
 void TestSeqList2() {
+	SL s2;
+	SeqListInit(&s2);
 
+	SeqListPushBack(&s2, 1);
+	SeqListPushBack(&s2, 2);
+	SeqListPushBack(&s2,3);
+	SeqListPushBack(&s2, 4);
+	SeqListPushBack(&s2, 5);
+
+	SeqListPushFront(&s2,1);
+	SeqListPushFront(&s2,2);
+	SeqListPushFront(&s2,3);
+	SeqListPushFront(&s2,4);
+	SeqListPushFront(&s2,5);
+
+	SeqListPrint(&s2);
+
+	SeqListPopFront(&s2);
+	SeqListPopFront(&s2);
+
+	SeqListPrint(&s2);
+
+	//最后不用了就销毁
+	SeqListDestory(&s2);
 }
 int main() {
-	TestSeqList1();
+	//TestSeqList1();
+	TestSeqList2();
 	return 0;
 }
