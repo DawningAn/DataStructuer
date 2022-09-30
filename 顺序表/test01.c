@@ -60,6 +60,17 @@ void TestSeqList2() {
 	SeqListPopFront(&s2);
 
 	SeqListPrint(&s2);
+	SeqListPushBack(&s2, 9);
+	int ret = SeqListFind(&s2, 9);
+	printf("%d\n", ret);
+
+	SeqListInsert(&s2, 2, 10);
+	SeqListPrint(&s2);
+	SeqListEraser(&s2, 1);
+	SeqListPrint(&s2);
+
+
+
 
 	//最后不用了就销毁
 	SeqListDestory(&s2);

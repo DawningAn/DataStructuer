@@ -27,11 +27,11 @@ void SeqListPushBack(SL* ps, SLDataType x);
 void SeqListPopBack(SL* ps);
 void SeqListPopFront(SL* ps);
 //查找值的位置，返回下标
-void SeqListFind(SL* ps, SLDataType x);
+int SeqListFind(SL* ps, SLDataType x);
 // 在某个位置插入元素x
 void SeqListInsert(SL* ps, int pos, SLDataType x);
 //删除pos位置的数据
-void SeqListErase(SL* ps, int pos);
+void SeqListEraser(SL* ps, int pos);
 //检查容量
 void Check_capacity(SL* ps);
 //打印顺序表
