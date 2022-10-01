@@ -75,8 +75,86 @@ void TestSeqList2() {
 	//最后不用了就销毁
 	SeqListDestory(&s2);
 }
+void menu() {
+	printf("-------------------------------------------\n");
+	printf("--------1.头插----------------2.尾插--------\n");
+	printf("--------3.头删----------------4.尾删--------\n");
+	printf("--------5.查找----------------6.插入元素----\n");
+	printf("--------7.删除指定元素---------0.退出--------\n");
+	printf("-------------------------------------------\n");
+}
+enum Option {
+	Exit,
+	SLPushFront,
+	SLPushBack,
+	SLPopFront,
+	SLPopBack,
+	SLFind,
+	SLInsert,
+	SLEraser
+
+
+};
 int main() {
 	//TestSeqList1();
-	TestSeqList2();
+	//TestSeqList2();
+	//实现交互来测试顺序表
+	SL s;
+	SeqListInit(&s);
+	while (1) {
+		menu();
+		printf("请输入操作：");
+		int input;
+		scanf("%d", &input);
+		int x;
+		int pos;
+		switch (input)
+		{
+		case SLPushFront:
+			printf("请输入插入的数字：");
+			scanf("%d", &x);
+			SeqListPushFront(&s, x);
+			SeqListPrint(&s);
+			break;
+		case SLPushBack:
+			printf("请输入插入的数字：");
+			scanf("%d", &x);
+			SeqListPushBack(&s, x);
+			SeqListPrint(&s);
+			break;
+		case SLPopFront:
+			SeqListPopFront(&s);
+			SeqListPrint(&s);
+			break;
+		case SLPopBack:
+			SeqListPopBack(&s);
+			SeqListPrint(&s);
+			break;
+		case SLFind:
+			printf("请输入要查找的数字：");
+			scanf("%d", &x);
+			SeqListFind(&s, x);
+			SeqListPrint(&s);
+			break;
+		case SLInsert:
+			printf("请输入要插入的位置及元素：");
+			scanf("%d %d", &pos, &x);
+			SeqListInsert(&s, pos, x);
+			SeqListPrint(&s);
+			break;
+		case SLEraser:
+			printf("请输入要删除的位置：");
+			scanf("%d", &pos);
+			SeqListEraser(&s, pos);
+			SeqListPrint(&s);
+			break;
+		case Exit:
+			printf("退出！\n");
+			exit(0);
+		default:
+			printf("非法输入！\n");
+			break;
+		}
+	}
 	return 0;
 }
