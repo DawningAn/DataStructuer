@@ -18,5 +18,8 @@ void SListPopFront(SLTNode** phead);
 // Œ≤…æ
 void SListPopBack(SLTNode** phead);
 // ≤Â»Î
+void SListInsert(SLTNode** phead, SLTNode* pos,SLTDataType x);
 // …æ≥˝
+void SListEraser(SLTNode** phead, SLTDataType x);
 // ≤È’“
+SLTNode* SListFind(SLTNode* phead, SLTDataType x);

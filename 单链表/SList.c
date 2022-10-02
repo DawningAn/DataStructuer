@@ -49,6 +49,75 @@ void SListPushFront(SLTNode** pphead, SLTDataType x) {
 }
 //头删
 void SListPopFront(SLTNode** pphead) {
-
-	
+	SLTNode* next = (*pphead)->next;
+	free(*pphead);
+	*pphead = next;
+}
+//尾删
+void SListPopBack(SLTNode** pphead) {
+	//没有节点
+	if (*pphead == NULL)
+		return;
+	//只有一个节点
+	else if ((*pphead)->next == NULL) {
+		free(*pphead);
+		*pphead = NULL;
+	}
+	else
+	{
+		SLTNode* back = *pphead;
+		SLTNode* pre = NULL;
+		while (back->next != NULL) {
+			pre = back;
+			back = back->next;
+		}
+		free(back);
+		pre->next = NULL;
+	}	
+}
+//查找
+SLTNode* SListFind(SLTNode* phead, SLTDataType x) {
+	SLTNode* cur = phead;
+	while (cur) {
+		if (cur->data == x) {
+			return cur;
+		}
+		cur = cur->next;
+	}
+	return NULL;
+}
+//插入
+void SListInsert(SLTNode** pphead, SLTNode* pos,SLTDataType x) {
+	SLTNode* pre = *pphead;
+	//如果pos在第一个位置的情况
+	if (pos == *pphead) {
+		SListPushFront(pphead, x);
+	}
+	else {
+		while (pre->next != pos) {
+			pre = pre->next;
+		}
+		SLTNode* newnode = CreateNode(x);
+		pre->next = newnode;
+		newnode->next = pos;
+	}
+}
+//删除
+void SListEraser(SLTNode** phead, SLTDataType x) {
+	SLTNode* ret = SListFind(*phead, x);
+	if (ret) {
+		if (ret == *phead) {
+			*phead = ret->next;
+			free(ret);
+		}
+		else {
+			SLTNode* pre = *phead;
+			while (pre->next != ret) {
+				pre = pre->next;
+			}
+			pre->next = ret->next;
+			free(ret);
+		}
+		
+	}
 }
