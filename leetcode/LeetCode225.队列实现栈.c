@@ -14,6 +14,7 @@ typedef struct Queue {
 	QNode* head;
 	QNode* tail;
 }Queue;
+
 //初始化
 void QueueInit(Queue* pq) {
 	assert(pq);
@@ -27,6 +28,7 @@ void QueueDestroy(Queue* pq) {
 		QNode* next = cur->next;
 		free(cur);
 		cur = next;
+	
 	}
 	pq->head = pq->tail = NULL;
 }
@@ -38,6 +40,7 @@ void QueuePrint(Queue* pq) {
 		printf("%d ", cur->data);
 		cur = cur->next;
 	}
+	printf("\n");
 }
 //队尾入
 void QueuePush(Queue* pq, QDataType x) {
@@ -94,13 +97,18 @@ bool QueueEmpty(Queue* pq) {
 //队列元素个数
 int QueueSize(Queue* pq) {
 	assert(pq);
-	int size = 0;
 	QNode* cur = pq->head;
-	while (cur != pq->tail) {
-		size++;
+	int n = 0;
+	while (cur)
+	{
+		++n;
+		cur = cur->next;
 	}
-	return size + 1;
+
+	return n;
 }
+
+
 
 
 typedef struct {
