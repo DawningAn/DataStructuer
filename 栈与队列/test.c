@@ -31,12 +31,20 @@ void TestQueue() {
 	QueuePush(&Q, 30);
 	QueuePush(&Q, 40);
 	QueuePush(&Q, 50);
+	QueuePrint(&Q);
+
+	printf("%d\n",QueueBack(&Q));
+	
+	printf("%d\n", QueueFront(&Q));
+	printf("QueueSize = %d\n", QueueSize(&Q));
 
 	while (!QueueEmpty(&Q)) {
 		printf("%d ", QueueFront(&Q));
 		QueuePop(&Q);
 	}
-	
+	printf("QueueSize = %d\n",QueueSize(&Q));
+
+	QueueDestroy(&Q);
 }
 int main() {
 	//TestStack();

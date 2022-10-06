@@ -3,7 +3,6 @@
 //初始化
 void QueueInit(Queue* pq) {
 	assert(pq);
-
 	pq->head = pq->tail = NULL;
 }
 //销毁
@@ -17,6 +16,16 @@ void QueueDestroy(Queue* pq) {
 	
 	}
 	pq->head = pq->tail = NULL;
+}
+void QueuePrint(Queue* pq) {
+	assert(pq);
+	assert(pq->head);
+	QNode* cur = pq->head;
+	while (cur) {
+		printf("%d ", cur->data);
+		cur = cur->next;
+	}
+	printf("\n");
 }
 //队尾入
 void QueuePush(Queue* pq, QDataType x) {
@@ -75,9 +84,10 @@ int QueueSize(Queue* pq) {
 	assert(pq);
 	int size = 0;
 	QNode* cur = pq->head;
-	while (cur != pq->tail) {
+	while (cur) {
 		size++;
+		cur = cur->next;
 	}
-	return size + 1;
+	return size;
 }
 
